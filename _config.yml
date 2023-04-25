@@ -27,7 +27,7 @@ sphinx:
 # Information about where the book exists on the web --- uncomment the repository and launch for binder
 
 repository:
-  url: https://github.com/cosmos-books/pgfunk
+  url: "https://github.com/cosmos-books/pgfunk"
   branch: "main"
 
 launch_buttons:
