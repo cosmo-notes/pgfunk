@@ -24,8 +24,8 @@ parts:
 
 - caption: Exercises
   chapters:
-  - file: chapters/exercise_dice
-    title: "Part I: throwing dice"
+  - file: chapters/exercise_part1
+    title: "Part I"
   - file: chapters/exercise_branching_process
     title: "Part II: branching process"
   - file: chapters/exercise_inference
