@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercises part I: throwing dice &#8212; PGFunk</title>
+    <title>Exercises part I &#8212; PGFunk</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -159,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Part I: throwing dice
+   Part I
   </a>
  </li>
  <li class="toctree-l1">
@@ -231,7 +231,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/cosmos-books/pgfunk/main?urlpath=lab/tree/chapters/exercise_dice.ipynb"
+        <a href="https://mybinder.org/v2/gh/cosmos-books/pgfunk/main?urlpath=lab/tree/chapters/exercise_part1.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,7 +287,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/chapters/exercise_dice.ipynb"
+        <a href="../_sources/chapters/exercise_part1.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -347,13 +347,37 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#choosing-the-right-support-and-avoiding-aliasing">
-   Choosing the right support and avoiding aliasing
+  <a class="reference internal nav-link" href="#rolling-dice">
+   Rolling dice
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-the-right-support-and-avoiding-aliasing">
+     Choosing the right support and avoiding aliasing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-complex-scenarios">
+     More complex scenarios
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-complex-scenarios">
-   More complex scenarios
+  <a class="reference internal nav-link" href="#not-rocket-science">
+   Not rocket science
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#survival-probability">
+     Survival probability
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bacteria-colony">
+   Bacteria colony
   </a>
  </li>
 </ul>
@@ -365,7 +389,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Exercises part I: throwing dice</h1>
+                <h1>Exercises part I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -376,13 +400,37 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#choosing-the-right-support-and-avoiding-aliasing">
-   Choosing the right support and avoiding aliasing
+  <a class="reference internal nav-link" href="#rolling-dice">
+   Rolling dice
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-the-right-support-and-avoiding-aliasing">
+     Choosing the right support and avoiding aliasing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-complex-scenarios">
+     More complex scenarios
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-complex-scenarios">
-   More complex scenarios
+  <a class="reference internal nav-link" href="#not-rocket-science">
+   Not rocket science
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#survival-probability">
+     Survival probability
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bacteria-colony">
+   Bacteria colony
   </a>
  </li>
 </ul>
@@ -395,8 +443,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="exercises-part-i-throwing-dice">
-<h1>Exercises part I: throwing dice<a class="headerlink" href="#exercises-part-i-throwing-dice" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises-part-i">
+<h1>Exercises part I<a class="headerlink" href="#exercises-part-i" title="Permalink to this headline">#</a></h1>
+<section id="rolling-dice">
+<h2>Rolling dice<a class="headerlink" href="#rolling-dice" title="Permalink to this headline">#</a></h2>
 <p>The code below extract the probability distribution for the roll of two dice. It will serve as a basis for the following exercise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -420,11 +470,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/exercise_dice_2_0.png" src="../_images/exercise_dice_2_0.png" />
+<img alt="../_images/exercise_part1_3_0.png" src="../_images/exercise_part1_3_0.png" />
 </div>
 </div>
 <section id="choosing-the-right-support-and-avoiding-aliasing">
-<h2>Choosing the right support and avoiding aliasing<a class="headerlink" href="#choosing-the-right-support-and-avoiding-aliasing" title="Permalink to this headline">#</a></h2>
+<h3>Choosing the right support and avoiding aliasing<a class="headerlink" href="#choosing-the-right-support-and-avoiding-aliasing" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>Change the value of <span class="math notranslate nohighlight">\(N\)</span>, first pick N &gt; 13, then <span class="math notranslate nohighlight">\(N &lt; 13\)</span>. What do you notice?</p></li>
 <li><p><span class="math notranslate nohighlight">\(n \in \{0,1,\dots,N-1\}\)</span> is the support of your probability distribution. When <span class="math notranslate nohighlight">\(N-1\)</span> is below 12, we have aliasing. Fix <span class="math notranslate nohighlight">\(N = 10\)</span> and now vary <span class="math notranslate nohighlight">\(r\)</span> between 0 and 1. What happens?</p></li>
@@ -436,11 +486,64 @@ title="Print to PDF"
 </div>
 </section>
 <section id="more-complex-scenarios">
-<h2>More complex scenarios<a class="headerlink" href="#more-complex-scenarios" title="Permalink to this headline">#</a></h2>
+<h3>More complex scenarios<a class="headerlink" href="#more-complex-scenarios" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>Get the probability distribution for the sum of a six-sided die and a twelve-sided die.</p></li>
 <li><p>You have dice of a very weird shape. The PGF for the roll of a single die is <span class="math notranslate nohighlight">\(g(x) = e^{x-1}\)</span>. Extract the probability distribution and make sure you eliminate aliasing effects. Do the same using two dice.</p></li>
-<li><p>You first roll a six-sided die, then depending on the number you get, you roll this number of (six-sided) dice and calculate the sum. What is the probability distribution of the sum?</p></li>
+</ol>
+</section>
+</section>
+<section id="not-rocket-science">
+<h2>Not rocket science<a class="headerlink" href="#not-rocket-science" title="Permalink to this headline">#</a></h2>
+<p>In the year 2034, the Earth is in a catastrophic state. Consequently, the Romano-Fafard, a spaceship commanded by Captain Patenaude, is set to be launched to discover another planet.</p>
+<p>As the chief engineer, you are tasked with designing the spaceship. Importantly, you must select the 12 rocket engines for the mission.</p>
+<p>Currently, you are reviewing the technical specifications of two prototype engines: <strong>A</strong>, which is fueled by Astrophage, and <strong>B</strong>, an antimatter-based rocket engine. Although both offer similar performances, their distributions of time to failure differ, as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">nbinom</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">pt_A</span> <span class="o">=</span> <span class="n">nbinom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mf">0.65</span><span class="p">)</span>
+<span class="n">pt_B</span> <span class="o">=</span> <span class="n">nbinom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pt_A</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Engine A&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pt_B</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Engine B&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of failure&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/exercise_part1_11_0.png" src="../_images/exercise_part1_11_0.png" />
+</div>
+</div>
+<section id="survival-probability">
+<h3>Survival probability<a class="headerlink" href="#survival-probability" title="Permalink to this headline">#</a></h3>
+<p>Our goal is to choose between prototype <strong>A</strong> and <strong>B</strong> for the 12 engines of the spaceship. Each engine <span class="math notranslate nohighlight">\(i\)</span> can be modeled as a random variable <span class="math notranslate nohighlight">\(X_i(t)\)</span>, where <span class="math notranslate nohighlight">\(X_i(t) = 1\)</span> signifies that the engine is still operational at time <span class="math notranslate nohighlight">\(t\)</span>, and <span class="math notranslate nohighlight">\(X_i(t) = 0\)</span> indicates that the engine has failed.</p>
+<p>If the pilot Bob needs at least <strong>4</strong> engines to maneuver the spaceship at all time, and the mission is expected to last <strong>20</strong> years, which engine should you choose?</p>
+<ol class="simple">
+<li><p>First, construct the PGF <span class="math notranslate nohighlight">\(g(x,t)\)</span> for the random variable <span class="math notranslate nohighlight">\(X_i(t)\)</span> associated with a single engine.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The PGF of a Bernoulli random variable looks like <span class="math notranslate nohighlight">\((1-p) + p x\)</span></p>
+</div>
+<ol class="simple">
+<li><p>From <span class="math notranslate nohighlight">\(g(x,t)\)</span>, construct the PGF <span class="math notranslate nohighlight">\(G(x,t) = \sum_{n=1}^{12} p_{n,t} x^n\)</span> for <span class="math notranslate nohighlight">\(X(t) = \sum_{i=1}^{12} X_i(t)\)</span>. What does the distribution <span class="math notranslate nohighlight">\(p_{n,t}\)</span> represent?</p></li>
+<li><p>Determine the probability of survival with each prototype. Which choice should you make? Could you have guessed this from the distributions above?</p></li>
+<li><p>If you are required to use 6 engines of type <strong>A</strong> and 6 engines of type <strong>B</strong>, calculate the probability of survival.</p></li>
+</ol>
+</section>
+</section>
+<section id="bacteria-colony">
+<h2>Bacteria colony<a class="headerlink" href="#bacteria-colony" title="Permalink to this headline">#</a></h2>
+<p>A colony of bacteria lives happily on an agar medium. Every 12 hours, each bacterium either divides itself into two bacteria with probability <span class="math notranslate nohighlight">\(p\)</span>, or dies with probability <span class="math notranslate nohighlight">\((1-p)\)</span>. Therefore, after 12 hours, we have a new <em>generation</em> of bacteria, and the <em>offspring</em> of a single bacterium is either <span class="math notranslate nohighlight">\(k = 0\)</span> or <span class="math notranslate nohighlight">\(k = 2\)</span>.</p>
+<ol class="simple">
+<li><p>Construct the PGF <span class="math notranslate nohighlight">\(g(x)\)</span> describing the offspring distribution of a single bacterium. keep <span class="math notranslate nohighlight">\(p\)</span> as a free parameter.</p></li>
+<li><p>Calculate the mean number of offsprings <span class="math notranslate nohighlight">\(\langle k \rangle\)</span> numerically for different values of <span class="math notranslate nohighlight">\(p\)</span>. This corresponds to the <em>reproduction number</em> of the population.</p></li>
+<li><p>Now assuming we start with 10 bacteria at generation 0, first construct the PGF <span class="math notranslate nohighlight">\(G(x)\)</span> for the total offspring distribution of the population. Second, determine the distribution for the number of bacteria at generation 1 for <span class="math notranslate nohighlight">\(p = 0.25\)</span>, <span class="math notranslate nohighlight">\(p = 0.5\)</span>, and <span class="math notranslate nohighlight">\(p =  0.75\)</span>. What is the <em>probability of extinction</em> at generation 1?</p></li>
+<li><p>What will happen it later generations? Can you construct the PGF associated with the number of bacteria at generation 2?</p></li>
 </ol>
 </section>
 </section>
