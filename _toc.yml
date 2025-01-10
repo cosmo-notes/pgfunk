@@ -25,9 +25,9 @@ parts:
 - caption: Exercises
   chapters:
   - file: chapters/exercise_part1
-    title: "Part I"
+    title: "Part I: random problems"
   - file: chapters/exercise_branching_process
-    title: "Part II: branching process"
+    title: "Part II: branching processes"
   - file: chapters/exercise_inference
     title: "Part III: statistical inference"
 
