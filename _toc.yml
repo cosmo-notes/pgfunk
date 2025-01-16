@@ -12,6 +12,8 @@ parts:
     title: Numerical inversion
   - file: chapters/multivariate_pgf
     title: Multivariate PGF
+  - file: chapters/self-consistent_solution
+    title: Solving special values
 
 - caption: Applications
   chapters:
