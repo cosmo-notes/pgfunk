@@ -8,12 +8,12 @@ parts:
   chapters:
   - file: chapters/pgf_properties
     title: Definition and properties
+  - file: chapters/self-consistent_solution
+    title: Solving special values
   - file: chapters/numerical_inversion
     title: Numerical inversion
   - file: chapters/multivariate_pgf
     title: Multivariate PGF
-  - file: chapters/self-consistent_solution
-    title: Solving special values
 
 - caption: Applications
   chapters:
