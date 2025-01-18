@@ -62,11 +62,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/self-consistent_solution';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/solving_spacial_values';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Inverting probability generating functions" href="numerical_inversion.html" />
-    <link rel="prev" title="Probability generating functions" href="pgf_properties.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -118,6 +116,8 @@
       
       
       
+        
+      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -163,9 +163,8 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">PGF 101</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="pgf_properties.html">Definition and properties</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Solving special values</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numerical_inversion.html">Numerical inversion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multivariate_pgf.html">Multivariate PGF</a></li>
 </ul>
@@ -239,7 +238,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/cosmos-books/pgfunk/main?urlpath=lab/tree/chapters/self-consistent_solution.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/cosmos-books/pgfunk/main?urlpath=lab/tree/chapters/solving_spacial_values.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +284,7 @@
       
       
       
-      <li><a href="../_sources/chapters/self-consistent_solution.ipynb" target="_blank"
+      <li><a href="../_sources/chapters/solving_spacial_values.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +370,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-extinction">Probability of extinction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-convergence">Faster convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-conditioned-on-extinction">Distribution conditioned on extinction</a></li>
 </ul>
             </nav>
         </div>
@@ -386,6 +387,8 @@
   <section class="tex2jax_ignore mathjax_ignore" id="solving-special-values">
 <h1>Solving special values<a class="headerlink" href="#solving-special-values" title="Link to this heading">#</a></h1>
 <p>While the variable <span class="math notranslate nohighlight">\(x\)</span> of a PGF <span class="math notranslate nohighlight">\(G(x)\)</span> is often meant to simply be interpreted as a counting variable, it can also sometimes be interpreted as a probability.</p>
+<section id="probability-of-extinction">
+<h2>Probability of extinction<a class="headerlink" href="#probability-of-extinction" title="Link to this heading">#</a></h2>
 <p>Consider a simple cell division process: A cell successfully divides in two with probability <span class="math notranslate nohighlight">\(p\)</span>, or dies trying with probability <span class="math notranslate nohighlight">\(1-p\)</span>. Using the definition of PGFs, we can define <span class="math notranslate nohighlight">\(G(x)\)</span> to be the PGF of the count of live cells at the end of the lifetime of a given cell:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -434,6 +437,7 @@ u = (1-p) +pu^2 = G(u) \; .
 <img alt="../_images/a504b4799c2ba39db7277c23f4a02810d72b3b77373ba5c37ddb7c477442de6e.png" src="../_images/a504b4799c2ba39db7277c23f4a02810d72b3b77373ba5c37ddb7c477442de6e.png" />
 </div>
 </div>
+</section>
 <section id="faster-convergence">
 <h2>Faster convergence<a class="headerlink" href="#faster-convergence" title="Link to this heading">#</a></h2>
 <p>In the code above, we keep track of our current estimate for <span class="math notranslate nohighlight">\(u\)</span> which we call <span class="math notranslate nohighlight">\(u_1\)</span> and update it to <span class="math notranslate nohighlight">\(u_2 = G(u_1)\)</span> until <span class="math notranslate nohighlight">\(\vert u2-u1\vert &gt; 10^{-5}\)</span>. We do use one easy trick to speed up the convergence though: Since we are going through values of the parameter <span class="math notranslate nohighlight">\(p\)</span> consecutively, we start our iteration at a <span class="math notranslate nohighlight">\(u_1\)</span> value that corresponds to the previous converged value (or 0.5 if this is the first value we test). Since we expect that the exact value of <span class="math notranslate nohighlight">\(u\)</span> must vary continuously with <span class="math notranslate nohighlight">\(p\)</span>, starting the iterative process for <span class="math notranslate nohighlight">\(p\)</span> at the solution for <span class="math notranslate nohighlight">\(p'\)</span> means that we are starting close to the new solution.</p>
@@ -454,7 +458,7 @@ f'(x) \approx g(x) = \frac{f(x+f(x))}{f(x)} - 1 \; .
 $<span class="math notranslate nohighlight">\(
 G'(x_n)-1 \approx \frac{G(G(x_n))-2G(x_n)+x_n}{G(x_n)-x_n}
 \)</span>$</p>
-<p>This approach can be impletemented as follows and compared to the previous ‘direct’ approach:</p>
+<p>This approach can be impletemented as follows and compared to the previous ‘direct’ approach. While it is <em>much</em> faster, the code is a little less neat: We have to evaluate the PGF a lot and test that the slope isn’t too close to zero to avoid numerical issues. While in practice we might often use Steffensen’s method, we use the direct approach in much of this sourcebook in the spirit of code readability.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Direct iteration</span>
@@ -510,6 +514,22 @@ G'(x_n)-1 \approx \frac{G(G(x_n))-2G(x_n)+x_n}{G(x_n)-x_n}
 <p>There are other methods for convergence, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Aitken%27s_delta-squared_process">Aitken’s delta-squared process or Aitken extrapolation</a>. But the authors have found the method described here to be preferred in most situations.</p>
 </div>
 </section>
+<section id="distribution-conditioned-on-extinction">
+<h2>Distribution conditioned on extinction<a class="headerlink" href="#distribution-conditioned-on-extinction" title="Link to this heading">#</a></h2>
+<p>Even when random events are independent realizations of a stochastic process with known parameters, they can become correlated or their observed parameters might change once we condition on their outcome. Here is a simple example, say that we flip an unbiased coin such that (a priori) we get ‘tails’ 50% of the time, and keep flipping until we get ‘heads’ then stop. Conditioned on a total sequence being of length two, the first flip is now 100% tails and the second flip is now 100% heads, not the 50/50 split expected before the flip.</p>
+<p>What does this mean for our cell division example? Given a probability of successful cell division <span class="math notranslate nohighlight">\(p\)</span>, we now know how to calculate the probability of extinction <span class="math notranslate nohighlight">\(u\)</span>. If we are interested in specifically studying the dynamics of cell lineage that go extinct, what is the effective probability of successful cell division <span class="math notranslate nohighlight">\(p'\)</span> that govern their dynamics?</p>
+<p>Looking at the first cell in the now extinct lineage, we know that it can fail to divide, or that if it does divide, none of their descendents can lead to an infinite population. The cell therefore divides according to the following generating function</p>
+<div class="math notranslate nohighlight">
+\[
+G'(x) \propto (1-p)+pu^2 x^2
+\]</div>
+<p>and normalizing to get a proper PGF
+$<span class="math notranslate nohighlight">\(
+G'(x) = \frac{(1-p)+pu^2 x^2}{G(u)} = \frac{1}{u}G(ux) \; .
+\)</span>$</p>
+<p>Say the true dynamics of the cells actually lead to a probability of succesfull division of <span class="math notranslate nohighlight">\(p=0.6\)</span>. We saw that a population of cells therefore has a probability of <span class="math notranslate nohighlight">\(u=0.666\)</span> of going extinct. This means that when looking at the dynamics of lineages that do go extinct, the effective probability of succesful division is only <span class="math notranslate nohighlight">\(p' = pu^2 = 0.266\)</span>.</p>
+<p>What does this mean? Even though the first cell is more likely to divide then die, when looking at finite populations of cells that went extinct, the vast of these will have gone extinct with their first cell not dividing. Stochastic processes are not always intuitive!</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -542,24 +562,6 @@ G'(x_n)-1 \approx \frac{G(G(x_n))-2G(x_n)+x_n}{G(x_n)-x_n}
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="pgf_properties.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Probability generating functions</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="numerical_inversion.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Inverting probability generating functions</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -577,7 +579,9 @@ G'(x_n)-1 \approx \frac{G(G(x_n))-2G(x_n)+x_n}{G(x_n)-x_n}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-extinction">Probability of extinction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faster-convergence">Faster convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-conditioned-on-extinction">Distribution conditioned on extinction</a></li>
 </ul>
   </nav></div>
 
