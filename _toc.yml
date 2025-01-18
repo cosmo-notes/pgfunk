@@ -8,7 +8,7 @@ parts:
   chapters:
   - file: chapters/pgf_properties
     title: Definition and properties
-  - file: chapters/solving_special_values
+  - file: chapters/solving_spacial_values
     title: Solving special values
   - file: chapters/numerical_inversion
     title: Numerical inversion
