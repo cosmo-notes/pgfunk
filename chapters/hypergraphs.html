@@ -414,22 +414,7 @@ G_s(x,y) \propto \sum_{s,t}^\infty sp_{s,t} x^{s-1} y^t = \frac{1}{\langle s\ran
 G_t(x,y) \propto \sum_{s,t}^\infty tp_{s,t} x^{s} y^{t-1} = \frac{1}{\langle t\rangle}\frac{\partial}{\partial y}G_0(x,y)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\langle s\rangle\)</span> and <span class="math notranslate nohighlight">\(\langle t\rangle\)</span> are simply the average number of single edges and triangles per node and just act as a normalization factor so that <span class="math notranslate nohighlight">\(G_s(1,1) = G_t(1,1) = 1\)</span>.</p>
-<p>We can then ask what is the probability <span class="math notranslate nohighlight">\(u\)</span> that the node reached by following a single edge does not belong to a giant cluster, and the probability <span class="math notranslate nohighlight">\(v^2\)</span> that neither nodes reached by following a triangle lead to a giant cluster. To make this calculation easier, we reverse the previous argument and ask for the following self-coherent relation</p>
-<div class="math notranslate nohighlight">
-\[
-u = (1-T)+TG_s(u,v^2) = 1-T[1-G_s(u,v^2)]
-\]</div>
-<p>since a single edge does not lead to the giant cluster if it doesn’t exist (probability <span class="math notranslate nohighlight">\(1-T\)</span>) or if it does, then none of its excess connections must lead to the giant cluster (probability <span class="math notranslate nohighlight">\(TG_s(u,v^2)\)</span>). Things are a bit more complicated for <span class="math notranslate nohighlight">\(v^2\)</span> since a triangle can be in more than two states after percolation. We state</p>
-<div class="math notranslate nohighlight">
-\[
-v^2 = (1-T)^2+ 2T(1-T)^2G_t(u,v^2) + 2T^2(1-T)G_t(u,v^2)^2 + T^2G_t(u,v^2)^2 = 1-2T(1-T)^2[1-G_t(u,v^2)]-T^2(3-2T)[1-G_t(u,v^2)^2]
-\]</div>
-<p>where in the middle expression, we account in order: For the probability that none of the two leaving the node on the triangle exist, the probability that only one exists and the third edge doesn’t, the probability that only one exists but the third edge does, and the probability that both of the first edges encountered exist. We then simply need to account for the probabilities that the nodes reached (if any) do not lead to the giant cluster with their excess connections, which leads to the different powers of <span class="math notranslate nohighlight">\(G_t(u,v^2)\)</span>. These self-coherent expressions are more complicated than before, but can be solved in the exact same way.</p>
-<p>Once that is done, we then calculate the size of the giant cluster as before</p>
-<div class="math notranslate nohighlight">
-\[
-S = 1-G_0(u,v^2) \; .
-\]</div>
+<p>Let’s define these generating functions for later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -459,8 +444,32 @@ S = 1-G_0(u,v^2) \; .
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
             <span class="n">value</span><span class="o">+=</span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">mu</span><span class="o">-</span><span class="n">nu</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span><span class="o">*</span><span class="p">(</span><span class="n">mu</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">nu</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">value</span>
-
-<span class="c1">#Values of average connectivity to explore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now ask what is the probability <span class="math notranslate nohighlight">\(u\)</span> that the node reached by following a single edge does not belong to a giant cluster, and the probability <span class="math notranslate nohighlight">\(v^2\)</span> that neither nodes reached by following a triangle lead to a giant cluster. To make this calculation easier, we reverse the previous argument and ask for the following self-coherent relation</p>
+<div class="math notranslate nohighlight">
+\[
+u = (1-T)+TG_s(u,v^2) = 1-T[1-G_s(u,v^2)]
+\]</div>
+<p>since a single edge does not lead to the giant cluster if it doesn’t exist (probability <span class="math notranslate nohighlight">\(1-T\)</span>) or if it does, then none of its excess connections must lead to the giant cluster (probability <span class="math notranslate nohighlight">\(TG_s(u,v^2)\)</span>). Things are a bit more complicated for <span class="math notranslate nohighlight">\(v^2\)</span> since a triangle can be in more than two states after percolation. We state</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+v^2 &amp;= (1-T)^2+ 2T(1-T)^2G_t(u,v^2) + 2T^2(1-T)G_t(u,v^2)^2 + T^2G_t(u,v^2)^2  \\
+&amp;= 1-2T(1-T)^2[1-G_t(u,v^2)]-T^2(3-2T)[1-G_t(u,v^2)^2]
+\end{align}
+\end{split}\]</div>
+<p>where in the middle expression, we account in order: For the probability that none of the two leaving the node on the triangle exist, the probability that only one exists and the third edge doesn’t, the probability that only one exists but the third edge does, and the probability that both of the first edges encountered exist. We then simply need to account for the probabilities that the nodes reached (if any) do not lead to the giant cluster with their excess connections, which leads to the different powers of <span class="math notranslate nohighlight">\(G_t(u,v^2)\)</span>. These self-coherent expressions are more complicated than before, but can be solved in the exact same way.</p>
+<p>Once that is done, we then calculate the size of the giant cluster as before</p>
+<div class="math notranslate nohighlight">
+\[
+S = 1-G_0(u,v^2) \; .
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Values of average connectivity to explore</span>
 <span class="n">mu_vec</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span> 
 <span class="n">nu_vec</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> 
 
@@ -496,6 +505,10 @@ S = 1-G_0(u,v^2) \; .
 <div class="cell_output docutils container">
 <img alt="../_images/222c03bad6289eaea24e35e6ce3bf4d11c166913a9c2dd58e3af0db792a6c06a.png" src="../_images/222c03bad6289eaea24e35e6ce3bf4d11c166913a9c2dd58e3af0db792a6c06a.png" />
 </div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The code above runs rather slowly. It should take almost 20 seconds to complete. This is an example where using Steffensen’s method, as seen previously, would be beneficial!</p>
 </div>
 </section>
 <section id="lesson-from-hypergraphs">
