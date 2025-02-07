@@ -19,6 +19,8 @@ parts:
   chapters:
   - file: chapters/branching_process
     title: Branching process
+  - file: chapters/cell_mutation
+    title: Cell mutation
   - file: chapters/contagion_on_networks
     title: Contagion on networks
   - file: chapters/hypergraphs
