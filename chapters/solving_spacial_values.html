@@ -179,7 +179,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="exercise_part1.html">Part I: random problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exercise_branching_process.html">Part II: branching processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercise_branching_process.html">Modeling overdispersion</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="exercise_inference.html">Part III: statistical inference</a></li>
 </ul>
 
@@ -456,10 +457,11 @@ u = (1-p) +pu^2 = G(u) \; .
 \[
 f'(x) \approx g(x) = \frac{f(x+f(x))}{f(x)} - 1 \; .
 \]</div>
-<p>Which in the case of the function we care about, <span class="math notranslate nohighlight">\(f(x) = G(x)-x\)</span>, becomes
-$<span class="math notranslate nohighlight">\(
+<p>Which, in the case of the function we care about, <span class="math notranslate nohighlight">\(f(x) = G(x)-x\)</span>, becomes</p>
+<div class="math notranslate nohighlight">
+\[
 G'(x_n)-1 \approx \frac{G(G(x_n))-2G(x_n)+x_n}{G(x_n)-x_n}
-\)</span>$</p>
+\]</div>
 <p>This approach can be impletemented as follows and compared to the previous ‘direct’ approach. While it is <em>much</em> faster, the code is a little less neat: We have to evaluate the PGF a lot and test that the slope isn’t too close to zero to avoid numerical issues. While in practice we might often use Steffensen’s method, we use the direct approach in much of this sourcebook in the spirit of code readability.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

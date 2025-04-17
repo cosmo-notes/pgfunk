@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exercises part II: branching process &#8212; PGFunk</title>
+    <title>Modeling overdispersion &#8212; PGFunk</title>
   
   
   
@@ -179,7 +179,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="exercise_part1.html">Part I: random problems</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Part II: branching processes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modeling overdispersion</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="exercise_inference.html">Part III: statistical inference</a></li>
 </ul>
 
@@ -362,7 +363,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercises part II: branching process</h1>
+    <h1>Modeling overdispersion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -372,9 +373,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-overdispersion">Modeling overdispersion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-extinction">Probability of extinction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modeling overdispersion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-extinction">Probability of extinction</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -385,8 +387,13 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercises-part-ii-branching-process">
-<h1>Exercises part II: branching process<a class="headerlink" href="#exercises-part-ii-branching-process" title="Link to this heading">#</a></h1>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exercises part II: branching process</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>The code below extract the probability distribution for the number of nodes at a few time points for a branching process with a Poisson offspring distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -420,7 +427,7 @@
 </div>
 </div>
 <section id="modeling-overdispersion">
-<h2>Modeling overdispersion<a class="headerlink" href="#modeling-overdispersion" title="Link to this heading">#</a></h2>
+<h1>Modeling overdispersion<a class="headerlink" href="#modeling-overdispersion" title="Link to this heading">#</a></h1>
 <p>Change the offspring distribution to a negative binomial, using the PGF</p>
 <div class="math notranslate nohighlight">
 \[
@@ -435,13 +442,12 @@ Q(x) = \left [1 + \frac{R}{\kappa}(1-x) \right]^{-\kappa} \;.
 </div>
 </section>
 <section id="probability-of-extinction">
-<h2>Probability of extinction<a class="headerlink" href="#probability-of-extinction" title="Link to this heading">#</a></h2>
+<h1>Probability of extinction<a class="headerlink" href="#probability-of-extinction" title="Link to this heading">#</a></h1>
 <ol class="arabic simple">
 <li><p>Set <span class="math notranslate nohighlight">\(\kappa = 0.1\)</span> and now extend the time to a large value (e.g., <span class="math notranslate nohighlight">\(t = 10\)</span> should be enough). You should observe that <span class="math notranslate nohighlight">\(p_0\)</span> (the <em>probability of extinction</em>) converge to a certain value.</p></li>
 <li><p>Change the initial condition <span class="math notranslate nohighlight">\(G_0(x)\)</span> and see how this affects <span class="math notranslate nohighlight">\(p_0\)</span> for large <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
 <li><p>Now vary <span class="math notranslate nohighlight">\(R\)</span>. Can you find a critical value <span class="math notranslate nohighlight">\(R_\mathrm{c}\)</span> such that <span class="math notranslate nohighlight">\(p_0 = 1\)</span> (for large <span class="math notranslate nohighlight">\(t\)</span>) for all <span class="math notranslate nohighlight">\(R &lt; R_\mathrm{c}\)</span>? Does this value depend on <span class="math notranslate nohighlight">\(G_0(x)\)</span> or <span class="math notranslate nohighlight">\(\kappa\)</span>?</p></li>
 </ol>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -509,9 +515,10 @@ Q(x) = \left [1 + \frac{R}{\kappa}(1-x) \right]^{-\kappa} \;.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-overdispersion">Modeling overdispersion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-extinction">Probability of extinction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modeling overdispersion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-extinction">Probability of extinction</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
