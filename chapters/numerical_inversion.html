@@ -450,6 +450,10 @@ For the sake of simplicity, let us use <span class="math notranslate nohighlight
 <img alt="../_images/07b363bade464eee0f1074a3b6884bb003f5a88a0655d0973ec749ef5d53e4a8.png" src="../_images/07b363bade464eee0f1074a3b6884bb003f5a88a0655d0973ec749ef5d53e4a8.png" />
 </div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more complicated applications, this approach can be slowed down by the required support size for the Fourier transform (i.e., the variable <span class="math notranslate nohighlight">\(N\)</span> above). As it turns out, the <a class="reference external" href="https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#The_radix-2_DIT_case">algorithms behind the transform</a> are optimized for <span class="math notranslate nohighlight">\(N\)</span> values that are powers of two. It can therefore be useful to rely on, for example, <span class="math notranslate nohighlight">\(N=2^{10}=1024\)</span> rather than <span class="math notranslate nohighlight">\(N=1000\)</span>.</p>
+</div>
 </section>
 <section id="general-probability-generating-function">
 <h2>General probability generating function<a class="headerlink" href="#general-probability-generating-function" title="Link to this heading">#</a></h2>
