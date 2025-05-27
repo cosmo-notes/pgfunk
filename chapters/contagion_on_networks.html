@@ -179,8 +179,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="exercise_part1.html">Part I: random problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exercise_branching_process.html">Modeling overdispersion</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="exercise_branching_process.html">Part II: branching processes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercise_inference.html">Part III: statistical inference</a></li>
 </ul>
 
@@ -524,7 +523,7 @@ H_0(x) = xG_0(1-T+TH_1(x))
 <span class="n">T</span> <span class="o">=</span> <span class="mf">0.425</span>
 
 <span class="c1"># Sample of the unit circle.</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">12</span>  <span class="c1"># (needs to be large enough to minimize the effect of aliasing)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">12</span>  <span class="c1"># (needs to be large enough to minimize the effect of aliasing)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>
 
 <span class="c1"># Solves the small component size distribution.</span>
@@ -543,7 +542,7 @@ H_0(x) = xG_0(1-T+TH_1(x))
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ec487ea5a11e8ea299bd7d0023598d10ba5221b8106bbd61ee84e430ce79784e.png" src="../_images/ec487ea5a11e8ea299bd7d0023598d10ba5221b8106bbd61ee84e430ce79784e.png" />
+<img alt="../_images/c7bea75620e8f1d9ef5452f3e6f804bcdcdaa373cd1ff3b76025965d5079fb0f.png" src="../_images/c7bea75620e8f1d9ef5452f3e6f804bcdcdaa373cd1ff3b76025965d5079fb0f.png" />
 </div>
 </div>
 <p>How different is the distribution of outbreak sizes before, around and after the epidemic threshold? Play around with the transmission probability <span class="math notranslate nohighlight">\(T\)</span> in the code snippet above to find out!</p>
@@ -558,7 +557,7 @@ H_0(x) = xG_0(1-T+TH_1(x))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability of extinction =  0.9999984684581275
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability of extinction =  0.9999984684581272
 </pre></div>
 </div>
 </div>
