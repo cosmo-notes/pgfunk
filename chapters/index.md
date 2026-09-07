@@ -1,4 +1,4 @@
-# Probability generating functions for computational epidemiology
+# Probability-generating-functionology
 
 Probability generating functions are extremely useful to characterize complex combinatorial
 objects which arise in various fields, such as network science or the study of epidemiological
