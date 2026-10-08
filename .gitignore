@@ -3,3 +3,5 @@ _build/
 .ipynb_checkpoints/
 __pycache__
 .python-version
+pgfunk.code-workspace
+talk-about-mpa/
